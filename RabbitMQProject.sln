@@ -23,13 +23,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQProject.Publisher",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HeaderExchange", "HeaderExchange", "{A60F6BB7-2788-4723-B0EA-F0E4B53BA438}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQProject.Consumer", "HeaderExchange\RabbitMQProject.Consumer\RabbitMQProject.Consumer.csproj", "{F65CBFB5-D065-4641-B71E-C7D277D778E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQProject.Consumer", "HeaderExchange\RabbitMQProject.Consumer\RabbitMQProject.Consumer.csproj", "{F65CBFB5-D065-4641-B71E-C7D277D778E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQProject.Publisher", "HeaderExchange\RabbitMQProject.Publisher\RabbitMQProject.Publisher.csproj", "{CD994395-ECAE-45EF-869A-04680D6EF5E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQProject.Publisher", "HeaderExchange\RabbitMQProject.Publisher\RabbitMQProject.Publisher.csproj", "{CD994395-ECAE-45EF-869A-04680D6EF5E9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{06CDE1E5-5321-4A8A-9EA9-0C32DEEA997B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared\Shared.csproj", "{2D863228-FA12-487E-B7AD-758E14411D9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared\Shared.csproj", "{2D863228-FA12-487E-B7AD-758E14411D9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Watermark", "Watermark", "{D2050AFB-CF1F-4301-A8A9-F073DB2F243D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQProjects.WatermarkApp", "RabbitMQProjects.WatermarkApp\RabbitMQProjects.WatermarkApp\RabbitMQProjects.WatermarkApp.csproj", "{BD28D800-128E-4E29-BF71-3F1B1D4F55DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +77,10 @@ Global
 		{2D863228-FA12-487E-B7AD-758E14411D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D863228-FA12-487E-B7AD-758E14411D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D863228-FA12-487E-B7AD-758E14411D9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD28D800-128E-4E29-BF71-3F1B1D4F55DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD28D800-128E-4E29-BF71-3F1B1D4F55DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD28D800-128E-4E29-BF71-3F1B1D4F55DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD28D800-128E-4E29-BF71-3F1B1D4F55DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +95,7 @@ Global
 		{F65CBFB5-D065-4641-B71E-C7D277D778E7} = {A60F6BB7-2788-4723-B0EA-F0E4B53BA438}
 		{CD994395-ECAE-45EF-869A-04680D6EF5E9} = {A60F6BB7-2788-4723-B0EA-F0E4B53BA438}
 		{2D863228-FA12-487E-B7AD-758E14411D9A} = {06CDE1E5-5321-4A8A-9EA9-0C32DEEA997B}
+		{BD28D800-128E-4E29-BF71-3F1B1D4F55DB} = {D2050AFB-CF1F-4301-A8A9-F073DB2F243D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F897B723-F4D2-48E4-A01F-3CB15BFAFBEF}
