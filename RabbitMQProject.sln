@@ -33,7 +33,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared\Sha
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Watermark", "Watermark", "{D2050AFB-CF1F-4301-A8A9-F073DB2F243D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQProjects.WatermarkApp", "RabbitMQProjects.WatermarkApp\RabbitMQProjects.WatermarkApp\RabbitMQProjects.WatermarkApp.csproj", "{BD28D800-128E-4E29-BF71-3F1B1D4F55DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQProjects.WatermarkApp", "RabbitMQProjects.WatermarkApp\RabbitMQProjects.WatermarkApp\RabbitMQProjects.WatermarkApp.csproj", "{BD28D800-128E-4E29-BF71-3F1B1D4F55DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Excel", "Excel", "{9BFB0BA2-7273-431E-B1FC-5AC4395BF0A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQProjects.ExcelCreateApp", "RabbitMQProjects.ExcelApp\RabbitMQProjects.ExcelCreateApp\RabbitMQProjects.ExcelCreateApp.csproj", "{DD3471E3-1634-4C71-A215-A25BD9E38A37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +85,10 @@ Global
 		{BD28D800-128E-4E29-BF71-3F1B1D4F55DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD28D800-128E-4E29-BF71-3F1B1D4F55DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD28D800-128E-4E29-BF71-3F1B1D4F55DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD3471E3-1634-4C71-A215-A25BD9E38A37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD3471E3-1634-4C71-A215-A25BD9E38A37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD3471E3-1634-4C71-A215-A25BD9E38A37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD3471E3-1634-4C71-A215-A25BD9E38A37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +104,7 @@ Global
 		{CD994395-ECAE-45EF-869A-04680D6EF5E9} = {A60F6BB7-2788-4723-B0EA-F0E4B53BA438}
 		{2D863228-FA12-487E-B7AD-758E14411D9A} = {06CDE1E5-5321-4A8A-9EA9-0C32DEEA997B}
 		{BD28D800-128E-4E29-BF71-3F1B1D4F55DB} = {D2050AFB-CF1F-4301-A8A9-F073DB2F243D}
+		{DD3471E3-1634-4C71-A215-A25BD9E38A37} = {9BFB0BA2-7273-431E-B1FC-5AC4395BF0A0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F897B723-F4D2-48E4-A01F-3CB15BFAFBEF}
