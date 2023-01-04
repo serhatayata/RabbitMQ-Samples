@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
+using RabbitMQ.Client;
 using RabbitMQProjects.ExcelCreateApp.Data;
+using RabbitMQProjects.ExcelCreateApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -18,7 +20,13 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(opt =>
     opt.User.RequireUniqueEmail = true;
 }).AddEntityFrameworkStores<AppDbContext>();
 
-
+builder.Services.AddSingleton<RabbitMQClientService>();
+builder.Services.AddSingleton<RabbitMQPublisher>();
+builder.Services.AddSingleton(sp => new ConnectionFactory()
+{
+    Port = 5672,
+    DispatchConsumersAsync = true
+});
 
 var app = builder.Build();
 #region SEED DATA
