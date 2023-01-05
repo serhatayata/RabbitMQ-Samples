@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using RabbitMQ.Client;
 using RabbitMQProjects.ExcelCreateApp.Data;
+using RabbitMQProjects.ExcelCreateApp.Hubs;
 using RabbitMQProjects.ExcelCreateApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +28,8 @@ builder.Services.AddSingleton(sp => new ConnectionFactory()
     Port = 5672,
     DispatchConsumersAsync = true
 });
+
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 #region SEED DATA
@@ -59,8 +62,13 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<MyHub>("/MyHub");
+
+    endpoints.MapControllerRoute(
+      name: "default",
+      pattern: "{controller=Home}/{action=Index}/{id?}");
+});
 
 app.Run();
