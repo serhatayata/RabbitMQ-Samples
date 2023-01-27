@@ -2,17 +2,16 @@
 using RabbitMQ.Client;
 using System.Diagnostics;
 using System.Text;
-using System.Threading.Channels;
-using WordToPdf.Producer.Models;
+using WordToZip.Producer.Models;
 
-namespace WordToPdf.Producer.Controllers
+namespace WordToZip.Producer.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ConnectionFactory _connectionFactory;
 
-        public HomeController(ConnectionFactory connectionFactory,ILogger<HomeController> logger)
+        public HomeController(ConnectionFactory connectionFactory, ILogger<HomeController> logger)
         {
             _logger = logger;
             _connectionFactory = connectionFactory;
@@ -23,39 +22,39 @@ namespace WordToPdf.Producer.Controllers
             return View();
         }
 
-        public IActionResult WordToPdfPage()
+        public IActionResult WordToZipPage()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult WordToPdfPage(Models.WordToPdf model)
+        public IActionResult WordToZipPage(Models.WordToZip model)
         {
             using var connection = _connectionFactory.CreateConnection();
             using var channel = connection.CreateModel();
-            
-            channel.ExchangeDeclare("convert-exchange", ExchangeType.Direct, true,false,null);
+
+            channel.ExchangeDeclare("convert-zip-exchange", ExchangeType.Direct, true, false, null);
             channel.QueueDeclare(queue: "File", durable: true, exclusive: false, autoDelete: false, arguments: null);
 
-            channel.QueueBind("File", "convert-exchange", "WordToPdf");
+            channel.QueueBind("File", "convert-zip-exchange", "WordToZip");
 
-            MessageWordToPdf messageWordToPdf = new();
+            MessageWordToZip messageWordToZip = new();
 
             using MemoryStream ms = new();
             //Copied to memory
             model.WordFile.CopyTo(ms);
-            messageWordToPdf.WordByte = ms.ToArray();
-            messageWordToPdf.Email = model.Email;
-            messageWordToPdf.FileName = Path.GetFileNameWithoutExtension(model.WordFile.FileName);
+            messageWordToZip.WordByte = ms.ToArray();
+            messageWordToZip.Email = model.Email;
+            messageWordToZip.FileName = Path.GetFileNameWithoutExtension(model.WordFile.FileName);
 
-            string serializeMessage = System.Text.Json.JsonSerializer.Serialize(messageWordToPdf);
+            string serializeMessage = System.Text.Json.JsonSerializer.Serialize(messageWordToZip);
             byte[] byteMessage = Encoding.UTF8.GetBytes(serializeMessage);
             var property = channel.CreateBasicProperties();
             property.Persistent = true;
 
-            channel.BasicPublish("convert-exchange", routingKey: "WordToPdf",basicProperties:property,byteMessage);
+            channel.BasicPublish("convert-zip-exchange", routingKey: "WordToZip", basicProperties: property, byteMessage);
 
-            ViewBag.result = "Word dosyanız PDF dosyasına dönüştürüldükten sonra size e-mail olarak gönderilecektir";
+            ViewBag.result = "Word dosyanız Zip dosyasına dönüştürüldükten sonra size e-mail olarak gönderilecektir";
             return View();
         }
 
